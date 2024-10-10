@@ -1,21 +1,16 @@
-
 export default class HolbertonClass {
   constructor(size, location) {
-    if (typeof size === 'number') {
-      this._size = size;
-    }
-    if (typeof location === 'string') {
-      this._location = location;
-    }
+    this._size = size;
+    this._location = location;
   }
 
-  // eslint-disable-next-line consistent-return
-  [Symbol.toPrimitive](value) {
-    if (value === 'number') {
+  [Symbol.toPrimitive](hint) {
+    if (hint === 'number') {
       return this._size;
     }
-    if (value === 'string') {
+    if (hint === 'string') {
       return this._location;
     }
+    return null;
   }
 }

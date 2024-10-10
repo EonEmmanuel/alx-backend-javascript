@@ -1,4 +1,3 @@
-
 import Building from './5-building';
 
 export default class SkyHighBuilding extends Building {
@@ -11,20 +10,10 @@ export default class SkyHighBuilding extends Building {
     return this._floors;
   }
 
-  set floors(floors) {
-    if (floors === undefined || floors === null) {
-      throw new Error('floors must be defined');
-    } else if (typeof floors === 'string') {
-      throw new Error('floors must be a number');
-    } else if (typeof floors !== 'number' || floors <= 0) {
-      throw new Error('floors must be a positive number');
-    } else if (!Number.isFinite(floors)) {
-      throw new Error('floors must be a finite number');
-    }
-    this._floors = Number(floors);
+  set floors(value) {
+    this._floors = value;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   evacuationWarningMessage() {
     return `Evacuate slowly the ${this._floors} floors`;
   }
